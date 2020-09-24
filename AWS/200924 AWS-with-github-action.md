@@ -1,8 +1,8 @@
 ## 200924 AWS-with-github-action
 
-S3 + Cloud Front
-
-Cloud Front 로 페이지 만들고, Route53 으로 도메인 연결한뒤 S3버킷 퍼블릭으로 생성하고 연결하기!
+> S3 + Cloud Front
+>
+> Cloud Front 로 페이지 만들고, Route53 으로 도메인 연결한뒤 S3버킷 퍼블릭으로 생성하고 연결하기!
 
 이번 실습에서는 Route53 생략하고 CloudFront만 생성해도 도메인 나와서 그거 이용함.
 
@@ -33,7 +33,7 @@ Cloud Front 로 페이지 만들고, Route53 으로 도메인 연결한뒤 S3버
     - 과거에는 아래 나오는 버킷을 넣으면 안된다고 하심. 이제는 될 수도??
 - **Origin Path**
   - /
-  - /가 기본이라서 다른데 클릭하면 없어짐ㅋㅋ
+  - /가 기본이라서 다른데 클릭하면 없어짐
 
 
 
