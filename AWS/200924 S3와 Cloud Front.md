@@ -1,4 +1,4 @@
-## 200924 AWS-with-github-action
+## 200924 S3 + Cloud Front
 
 > S3 + Cloud Front
 >
