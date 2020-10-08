@@ -86,11 +86,12 @@
        ![화면 캡처 2020-10-08 215041](https://user-images.githubusercontent.com/44438366/95465256-dad42980-09b5-11eb-8c6e-330e878f5953.png)
 
      - 아래와 같이 찍히면 완성!
+       
        ![화면 캡처 2020-10-08 214817](https://user-images.githubusercontent.com/44438366/95464996-934d9d80-09b5-11eb-9b9a-09e3483f82e3.png)
 
+</br>
 
-
-vpc랑 서브넷은 돈 안나가니까 괜찮지만 ec2는 지우세용~
+vpc랑 서브넷은 돈 안나가니까 괜찮지만 ec2는 지우세요~
 
 
 
