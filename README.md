@@ -8,9 +8,10 @@
 
 - [S3 + Cloud Front](https://github.com/vo0a/TIL/blob/master/AWS/200924%20S3%EC%99%80%20Cloud%20Front.md)
 
-- [VPC + Subnet](https://github.com/vo0a/TIL/blob/master/AWS/201008%20VPC%EC%99%80%20Subnet.md)
+- VPC + Subnet
 
-  - Internet Gateway, Routing table
+  - [Internet Gateway, Routing table](https://github.com/vo0a/TIL/blob/master/AWS/201008%20VPC%EC%99%80%20Subnet.md)
+  - [NAT](https://github.com/vo0a/TIL/blob/master/AWS/201015%20VPC%EC%99%80%20Subnet%202.md)
   
   
 
