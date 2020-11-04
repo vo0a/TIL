@@ -13,6 +13,8 @@
   - [Internet Gateway, Routing table](https://github.com/vo0a/TIL/blob/master/AWS/201008%20VPC%EC%99%80%20Subnet.md)
   - [NAT](https://github.com/vo0a/TIL/blob/master/AWS/201015%20VPC%EC%99%80%20Subnet%202.md)
   
+- [AWS Gateway + Lambda](https://github.com/vo0a/TIL/blob/master/AWS/201029%20AWS%20Gateway%EC%99%80%20Lambda.md)
+
   
 
 ## JPA
