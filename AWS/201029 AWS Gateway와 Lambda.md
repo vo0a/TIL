@@ -46,7 +46,7 @@
 
 - 그리고 람다 코드를 수정하고 Deploy후 테스트해보기
 
-  - ```json
+  - ```js
     exports.handler = async (event) => {
         
         return {
@@ -85,7 +85,7 @@
   
   - 코드 추가 후 디플로이. 접속하면 잘 됨
   
-    - ```json
+    - ```js
       exports.handler = async (event) => {
           
           if(event.httpMethod == 'GET'){
@@ -170,7 +170,7 @@ DynamoDB까지 연결하는 예제는 인터넷 참고. 👉 [링크](https://ve
 
 **Get** [자습서](https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v2/developer-guide/dynamodb-example-document-client.html)
 
-```json
+```js
 var AWS = require('aws-sdk')
 
 AWS.config.update({
@@ -200,7 +200,7 @@ exports.handler = function(event, context, callback) {
 
 **Post** 
 
-```json
+```js
 var AWS = require('aws-sdk')
 
 AWS.config.update({
