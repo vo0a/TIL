@@ -187,7 +187,8 @@ DynamoDB까지 연결하는 예제는 인터넷 참고. 👉 [링크](https://ve
 
 **Get** [자습서](https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v2/developer-guide/dynamodb-example-document-client.html)
 
-- 데이터베이스 selectAll 메소드를 담당하는 dbRead()의 개념은 [Stack overflow](https://stackoverflow.com/questions/44589967/how-to-fetch-scan-all-items-from-aws-dynamodb-using-node-js) 참고
+- 데이터베이스 selectAll 메소드를 담당하는 scan활용
+-  dbRead()의 개념은 [Stack overflow](https://stackoverflow.com/questions/44589967/how-to-fetch-scan-all-items-from-aws-dynamodb-using-node-js) 참고
 
 ```js
 var AWS = require('aws-sdk')
@@ -219,6 +220,27 @@ exports.handler = async function(event, context, callback) {
     return {
         body : data
     }
+}
+```
+
+또는 더 간단하게
+
+```js
+var AWS = require('aws-sdk')
+
+AWS.config.update({
+    region: 'ap-northeast-2',
+    endpoint: "http://dynamodb.ap-northeast-2.amazonaws.com"
+})
+const dynamo = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = function(event, context, callback) {
+    console.log(event);
+    var params = {
+        TableName: "ausg"
+    };
+    
+    dynamo.scan(params, callback);
 }
 ```
 
