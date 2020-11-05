@@ -20,13 +20,20 @@
 > (API 게이트웨이를 먼저 생성할때는 추후 연결될 람다와 메서드 이름을 동일하게 만들어야 한다.)
 
 - API Gateway 생성
+  
   - RESTful API
 - **리소스**를 만들고
 - url 호출됐을 때 매핑될 **메서드**를 만들어야 한다.
   - 그 함수를 Lambda와 매핑!
-  - 매핑 템플릿
+  - [매핑 템플릿](https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html)
+    
     - Content-Type
+      
       - application/json
+      
+        ```js
+        $input.json('$')
+        ```
 - 리소스를 다시 클릭하고 **CORS 활성화**
 - 메서드를 클릭하고 API 배포
   - 새 스테이지
@@ -78,9 +85,9 @@
   - API 를 생성.
   
   - API 게이트웨이로 트리거 구성
-    
+  
 - API ausg-serverless
-    
+  
 - Lambda 함수에 API를 추가하여 함수를 호출하는 HTTP 엔드포인트를 생성합니다. API Gateway는 HTTP API 및 REST API와 같은 두 가지 유형의 RESTful API를 지원합니다. [자세히 알아보기](https://docs.aws.amazon.com/console/lambda/apigateway)
   
   - 코드 추가 후 디플로이. 접속하면 잘 됨
@@ -168,7 +175,19 @@
 
 DynamoDB까지 연결하는 예제는 인터넷 참고. 👉 [링크](https://velog.io/@nari120/DynamoDB-Lambda-%EC%98%88%EC%A0%9C)
 
+**Table**
+
+| 속성  | 자료형  |
+| ----- | ------- |
+| id    | integer |
+| name  | string  |
+| email | string  |
+
+
+
 **Get** [자습서](https://docs.aws.amazon.com/ko_kr/sdk-for-javascript/v2/developer-guide/dynamodb-example-document-client.html)
+
+- 데이터베이스 selectAll 메소드를 담당하는 dbRead()의 개념은 [Stack overflow](https://stackoverflow.com/questions/44589967/how-to-fetch-scan-all-items-from-aws-dynamodb-using-node-js) 참고
 
 ```js
 var AWS = require('aws-sdk')
@@ -177,26 +196,33 @@ AWS.config.update({
     region: 'ap-northeast-2',
     endpoint: "http://dynamodb.ap-northeast-2.amazonaws.com"
 })
-
 const docClient = new AWS.DynamoDB.DocumentClient();
-exports.handler = function(event, context, callback) {
+
+async function dbRead(params) {
+    let promise = docClient.scan(params).promise();
+    let result = await promise;
+    let data = result.Items;
+    if (result.LastEvaluatedKey) {
+        params.ExclusiveStartKey = result.LastEvaluatedKey;
+        data = data.concat(await dbRead(params));
+    }
+    return data;
+}
+
+exports.handler = async function(event, context, callback) {
     console.log(event);
     var params = {
-        TableName: "ausg",
-        Key: {
-            "id": event.id
-        }
+        TableName: "ausg"
     };
-
-    docClient.get(params, function(err, data) {
-        if(err){
-            callback(err, null);
-        } else{
-            callback(null, data);
-        }
-    })
+    
+    let data = await dbRead(params);
+    return {
+        body : data
+    }
 }
 ```
+
+
 
 **Post** 
 
@@ -230,3 +256,10 @@ exports.handler = function(event, context, callback) {
 }
 ```
 
+- API Gateway 매핑 템플릿
+
+  ```json
+  $input.json('$')
+  ```
+
+  
