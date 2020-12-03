@@ -17,6 +17,8 @@
 
 - [ElasticLoadBalancer](https://github.com/vo0a/TIL/blob/master/AWS/201105%20ElasticLoadBalancer.md)
 
+- [Route 53](https://github.com/vo0a/TIL/blob/master/AWS/201203%20Route53.md)
+
   
 
 ## JPA
