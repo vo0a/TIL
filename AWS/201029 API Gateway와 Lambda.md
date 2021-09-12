@@ -1,4 +1,4 @@
-## 201029 AWS Gateway와 Lambda
+## 201029 API Gateway와 Lambda
 
 `201105 수정`
 
